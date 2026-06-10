@@ -52,7 +52,9 @@ jobs:
           version: 9
           
       - name: 📦 安装依赖 / Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: |
+          pnpm config set dangerouslyAllowAllBuilds true
+          pnpm install --frozen-lockfile
         working-directory: ./mail-worker
 
       - name: 📡 禁用 Wrangler 遥测 / Disable wrangler telemetry
