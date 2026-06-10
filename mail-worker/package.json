@@ -1,5 +1,8 @@
 {
 	"name": "mail-worker",
+	  "pnpm": {
+    "onlyBuiltDependencies": ["esbuild", "sharp", "workerd"]
+  },
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
