@@ -38,10 +38,6 @@ jobs:
       - name: 🚚 检出代码仓库 / Checkout repository
         uses: actions/checkout@v4
 
-      - name: ⚙ 设置 pnpm / Set up pnpm
-        uses: pnpm/action-setup@v4.1.0
-        with:
-          version: latest
 
       - name: ⚙ 设置 Node.js / Set up Node.js
         uses: actions/setup-node@v4
@@ -49,7 +45,12 @@ jobs:
           node-version: "22"
           cache: "pnpm"
           cache-dependency-path: "./mail-worker/pnpm-lock.yaml"
-
+          
+      - name: ⚙ 设置 pnpm / Set up pnpm
+        uses: pnpm/action-setup@v4.1.0
+        with:
+          version: latest
+          
       - name: 📦 安装依赖 / Install dependencies
         run: pnpm install --frozen-lockfile
         working-directory: ./mail-worker
